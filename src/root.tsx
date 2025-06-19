@@ -1,6 +1,6 @@
 import './app.css'
 
-import { ClerkProvider, SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/react-router'
+import { ClerkProvider, SignedIn, UserButton } from '@clerk/react-router'
 import { rootAuthLoader } from '@clerk/react-router/ssr.server'
 import {
   isRouteErrorResponse,
@@ -51,10 +51,7 @@ export function Layout ({ children }: { children: React.ReactNode }) {
 export default function App ({ loaderData }: Route.ComponentProps) {
   return (
     <ClerkProvider loaderData={loaderData}>
-      <header className='flex items-center justify-center py-8 px-4'>
-        <SignedOut>
-          <SignInButton />
-        </SignedOut>
+      <header className='flex items-center justify-end py-8 px-4'>
         <SignedIn>
           <UserButton />
         </SignedIn>
